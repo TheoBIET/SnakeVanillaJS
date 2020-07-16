@@ -10,6 +10,7 @@ window.onload = () => {
       let widthInBlocks = canvasWidth/blockSize;
       let heightInBlocks = canvasHeight/blockSize;
       let score;
+      let timeout;
 
          init();
 
@@ -56,7 +57,7 @@ window.onload = () => {
                   drawScore();
                   snakee.draw ();
                   applee.draw();
-                  setTimeout (refreshCanvas,delay);
+                  timeout = setTimeout (refreshCanvas,delay);
 
             };
       };
@@ -83,6 +84,7 @@ window.onload = () => {
             snakee = new Snake([[6,4],[5,4],[4,4]],"right");
             applee = new Apple([10, 10]);
             score = 0;
+            clearTimeout(timeout);
             refreshCanvas();
 
       };
